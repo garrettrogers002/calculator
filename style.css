@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#calculator {
+    height: 800px;
+    width: 500px;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 3%;
+}
+#display {
+    margin-top: 10px;
+    height: 100px;
+    width: 450px;
+    background-color: darkgray;
+}
+#buttonGrid {
+    background-color: black;
+    width: 450px;
+    height: 650px;
+}
