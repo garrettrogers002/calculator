@@ -514,4 +514,4 @@ equal.addEventListener("mousedown", function () {
     editFirstNumber = false;
     finished = true;
     display.textContent = result;
-})
+}) // 5 17 is my birthday!
