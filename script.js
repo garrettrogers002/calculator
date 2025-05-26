@@ -216,6 +216,11 @@ multiplyBtn.addEventListener("mousedown", function () {
         editFirstNumber = false;
         operator = "multiply";
     } else {
+        if (operator === "divide" && secondNumber == 0) {
+            reset();
+            display.textContent = "nice try";
+            return
+        }
         let result = operate(operator, firstNumber, secondNumber);
         operator = "multiply";
         result = +result.toFixed(5); // found this solution on stackoverflow
@@ -318,6 +323,11 @@ minusBtn.addEventListener("mousedown", function () {
         editFirstNumber = false;
         operator = "subtract";
     } else {
+        if (operator === "divide" && secondNumber == 0) {
+            reset();
+            display.textContent = "nice try";
+            return
+        }
         let result = operate(operator, firstNumber, secondNumber);
         operator = "subtract";
         result = +result.toFixed(5); // found this solution on stackoverflow
@@ -420,6 +430,11 @@ plusBtn.addEventListener("mousedown", function () {
         editFirstNumber = false;
         operator = "add";
     } else {
+        if (operator === "divide" && secondNumber == 0) {
+            reset();
+            display.textContent = "nice try";
+            return
+        }
         let result = operate(operator, firstNumber, secondNumber);
         operator = "add";
         result = +result.toFixed(5); // found this solution on stackoverflow
@@ -445,7 +460,8 @@ zero.addEventListener("mousedown", function () {
         }
     } else {
         if (secondNumber === null) {
-            return
+            secondNumber = "0";
+            display.textContent = secondNumber;
         } else {
             if (firstNumber.length === 10) {
                 return
@@ -484,7 +500,12 @@ equal.addEventListener("mousedown", function () {
     }
     console.log(operator);
     console.log(firstNumber);
-    console.log(secondNumber);  
+    console.log(secondNumber);
+    if (operator === "divide" && secondNumber == 0) {
+        reset();
+        display.textContent = "nice try";
+        return
+    }
     let result = operate(operator, firstNumber, secondNumber);
     result = +result.toFixed(5); // found this solution on stackoverflow
     console.log(result);
