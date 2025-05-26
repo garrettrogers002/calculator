@@ -68,15 +68,27 @@ function reset() {
 // --------- event listeners -----------------------------
 clear.addEventListener("mousedown", function () {
     reset();
+    display.style.fontSize = 80 + "px";
 })
 posNeg.addEventListener("mousedown", function () {
-    if (editFirstNumber) {
-        if (firstNumber === null) {
+    if (editFirstNumber && finished === false) {
+        if (firstNumber === null || Number.isNaN(firstNumber)) {
             return
         }
         let number = Array.from(firstNumber);
         if (number[0] !== "-") {
-            number.unshift("-")
+            number.unshift("-");
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
+        } else {
+            number.shift();
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
+        }
+    } else if (finished === true) {
+        let number = [...firstNumber.toString()];
+        if (number[0] !== "-") {
+            number.unshift("-");
             firstNumber = number.join('');
             display.textContent = firstNumber;
         } else {
@@ -85,7 +97,7 @@ posNeg.addEventListener("mousedown", function () {
             display.textContent = firstNumber;
         }
     } else {
-        if (secondNumber === null) {
+        if (secondNumber === null || Number.isNaN(secondNumber)) {
             return
         }
         let number = Array.from(secondNumber);
@@ -102,9 +114,15 @@ posNeg.addEventListener("mousedown", function () {
 })
 percent.addEventListener("mousedown", function () {
     if (editFirstNumber) {
+        if (Number.isNaN(firstNumber) || firstNumber === null) {
+            return
+        }
         firstNumber = parseFloat(firstNumber) * 0.01;
         display.textContent = firstNumber.toString(); 
     } else {
+        if (Number.isNaN(secondNumber)) {
+            return
+        }
         secondNumber = parseFloat(secondNumber) * 0.01;
         display.textContent = secondNumber.toString();
     }
@@ -125,6 +143,7 @@ divideBtn.addEventListener("mousedown", function () {
 })
 // --------------------------------------------------
 seven.addEventListener("mousedown", function () {
+    display.style.fontSize = 80 + "px";
     if (editFirstNumber) {
         if (firstNumber === null) {
             firstNumber = "7";
@@ -154,6 +173,7 @@ seven.addEventListener("mousedown", function () {
     }
 })
 eight.addEventListener("mousedown", function () {
+    display.style.fontSize = 80 + "px";
     if (editFirstNumber) {
         if (firstNumber === null) {
             firstNumber = "8";
@@ -183,6 +203,7 @@ eight.addEventListener("mousedown", function () {
     }
 })
 nine.addEventListener("mousedown", function () {
+    display.style.fontSize = 80 + "px";
     if (editFirstNumber) {
         if (firstNumber === null) {
             firstNumber = "9";
@@ -232,6 +253,7 @@ multiplyBtn.addEventListener("mousedown", function () {
 })
 // ------------------------------------------------------
 four.addEventListener("mousedown", function () {
+    display.style.fontSize = 80 + "px";
     if (editFirstNumber) {
         if (firstNumber === null) {
             firstNumber = "4";
@@ -261,6 +283,7 @@ four.addEventListener("mousedown", function () {
     }
 })
 five.addEventListener("mousedown", function () {
+    display.style.fontSize = 80 + "px";
     if (editFirstNumber) {
         if (firstNumber === null) {
             firstNumber = "5";
@@ -290,6 +313,7 @@ five.addEventListener("mousedown", function () {
     }
 })
 six.addEventListener("mousedown", function () {
+    display.style.fontSize = 80 + "px";
     if (editFirstNumber) {
         if (firstNumber === null) {
             firstNumber = "6";
@@ -339,6 +363,7 @@ minusBtn.addEventListener("mousedown", function () {
 })
 //-------------------------------------------------------
 one.addEventListener("mousedown", function () {
+    display.style.fontSize = 80 + "px";
     if (editFirstNumber) {
         if (firstNumber === null) {
             firstNumber = "1";
@@ -368,6 +393,7 @@ one.addEventListener("mousedown", function () {
     }
 })
 two.addEventListener("mousedown", function () {
+    display.style.fontSize = 80 + "px";
     if (editFirstNumber) {
         if (firstNumber === null) {
             firstNumber = "2";
@@ -397,6 +423,7 @@ two.addEventListener("mousedown", function () {
     }
 })
 three.addEventListener("mousedown", function () {
+    display.style.fontSize = 80 + "px";
     if (editFirstNumber) {
         if (firstNumber === null) {
             firstNumber = "3";
@@ -446,9 +473,11 @@ plusBtn.addEventListener("mousedown", function () {
 })
 //------------------------------------------------------
 zero.addEventListener("mousedown", function () {
+    display.style.fontSize = 80 + "px";
     if (editFirstNumber) {
         if (firstNumber === null) {
-            return
+            firstNumber = "0";
+            display.textContent = firstNumber;
         } else {
             if (firstNumber.length === 10) {
                 return
@@ -495,23 +524,40 @@ decimal.addEventListener("mousedown", function () {
     }
 })
 equal.addEventListener("mousedown", function () {
+    let result;
     if (firstNumber === null || secondNumber === null) {
         return
     }
-    console.log(operator);
-    console.log(firstNumber);
-    console.log(secondNumber);
     if (operator === "divide" && secondNumber == 0) {
         reset();
         display.textContent = "nice try";
         return
     }
-    let result = operate(operator, firstNumber, secondNumber);
-    result = +result.toFixed(5); // found this solution on stackoverflow
-    console.log(result);
+    result = operate(operator, firstNumber, secondNumber);
+    // console.log(lengthVar.length);
+    if (Math.trunc(result).toString().length > 10) {
+        console.log(result);
+        console.log(`length is ${result.toString().length}`);
+        reset();
+        display.style.fontSize = 50 + "px";
+        display.textContent = "result is too big";
+        return
+    } else if (Math.trunc(result).toString().length === 10) {
+        result = Math.round(result);
+    } else if (Math.trunc(result).toString().length === 9) {
+        result = +result.toFixed(1);
+    } else if (Math.trunc(result).toString().length === 8) {
+        result = +result.toFixed(2);
+    } else if (Math.trunc(result).toString().length === 7) {
+        result = +result.toFixed(3);
+    } else if (Math.trunc(result).toString().length === 6) {
+        result = +result.toFixed(4);
+    } else if (Math.trunc(result).toString().length <= 5) {
+        result = +result.toFixed(5);
+    }
     firstNumber = result;
     secondNumber = null;
     editFirstNumber = false;
     finished = true;
     display.textContent = result;
-}) // 5 17 is my birthday!
+})
