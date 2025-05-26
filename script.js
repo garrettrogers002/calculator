@@ -1,6 +1,7 @@
 let firstNumber = null, secondNumber = null;
 let operator = null;
 let editFirstNumber = true;
+let finished = false;
 
 const display = document.querySelector("#display");
 
@@ -29,16 +30,16 @@ const decimal = document.querySelector("#decimal");
 const equal = document.querySelector("#equal");
 
 function add(firstNumber, secondNumber) {
-    return (parseInt(firstNumber) + parseInt(secondNumber));
+    return (parseFloat(firstNumber) + parseFloat(secondNumber));
 }
 function subtract(firstNumber, secondNumber) {
-    return (parseInt(firstNumber) - parseInt(secondNumber));
+    return (parseFloat(firstNumber) - parseFloat(secondNumber));
 }
 function multiply(firstNumber, secondNumber) {
-    return (parseInt(firstNumber) * parseInt(secondNumber));
+    return (parseFloat(firstNumber) * parseFloat(secondNumber));
 }
 function divide(firstNumber, secondNumber) {
-    return (parseInt(firstNumber) / parseInt(secondNumber));
+    return (parseFloat(firstNumber) / parseFloat(secondNumber));
 }
 
 function operate(operation, firstNumber, secondNumber) {
@@ -57,12 +58,16 @@ function operate(operation, firstNumber, secondNumber) {
                 break
         }
 }
-// --------- event listeners -----------------------------
-clear.addEventListener("mousedown", function () {
+
+function reset() {
     editFirstNumber = true;
     firstNumber = null;
     secondNumber = null
     display.textContent = "";
+}
+// --------- event listeners -----------------------------
+clear.addEventListener("mousedown", function () {
+    reset();
 })
 posNeg.addEventListener("mousedown", function () {
     if (editFirstNumber) {
@@ -96,12 +101,26 @@ posNeg.addEventListener("mousedown", function () {
     }
 })
 percent.addEventListener("mousedown", function () {
-
+    if (editFirstNumber) {
+        firstNumber = parseFloat(firstNumber) * 0.01;
+        display.textContent = firstNumber.toString(); 
+    } else {
+        secondNumber = parseFloat(secondNumber) * 0.01;
+        display.textContent = secondNumber.toString();
+    }
 })
 divideBtn.addEventListener("mousedown", function () {
     if (secondNumber === null) {
         editFirstNumber = false;
         operator = "divide";
+    } else {
+        let result = operate(operator, firstNumber, secondNumber);
+        operator = "divide";
+        result = +result.toFixed(5); // found this solution on stackoverflow
+        firstNumber = result;
+        secondNumber = null;
+        editFirstNumber = false;
+        display.textContent = result;
     }
 })
 // --------------------------------------------------
@@ -196,6 +215,14 @@ multiplyBtn.addEventListener("mousedown", function () {
     if (secondNumber === null) {
         editFirstNumber = false;
         operator = "multiply";
+    } else {
+        let result = operate(operator, firstNumber, secondNumber);
+        operator = "multiply";
+        result = +result.toFixed(5); // found this solution on stackoverflow
+        firstNumber = result;
+        secondNumber = null;
+        editFirstNumber = false;
+        display.textContent = result;
     }
 })
 // ------------------------------------------------------
@@ -290,6 +317,14 @@ minusBtn.addEventListener("mousedown", function () {
     if (secondNumber === null) {
         editFirstNumber = false;
         operator = "subtract";
+    } else {
+        let result = operate(operator, firstNumber, secondNumber);
+        operator = "subtract";
+        result = +result.toFixed(5); // found this solution on stackoverflow
+        firstNumber = result;
+        secondNumber = null;
+        editFirstNumber = false;
+        display.textContent = result;
     }
 })
 //-------------------------------------------------------
@@ -384,6 +419,14 @@ plusBtn.addEventListener("mousedown", function () {
     if (secondNumber === null) {
         editFirstNumber = false;
         operator = "add";
+    } else {
+        let result = operate(operator, firstNumber, secondNumber);
+        operator = "add";
+        result = +result.toFixed(5); // found this solution on stackoverflow
+        firstNumber = result;
+        secondNumber = null;
+        editFirstNumber = false;
+        display.textContent = result;
     }
 })
 //------------------------------------------------------
@@ -448,5 +491,6 @@ equal.addEventListener("mousedown", function () {
     firstNumber = result;
     secondNumber = null;
     editFirstNumber = false;
+    finished = true;
     display.textContent = result;
 })
