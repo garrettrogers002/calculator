@@ -66,6 +66,9 @@ clear.addEventListener("mousedown", function () {
 })
 posNeg.addEventListener("mousedown", function () {
     if (editFirstNumber) {
+        if (firstNumber === null) {
+            return
+        }
         let number = Array.from(firstNumber);
         if (number[0] !== "-") {
             number.unshift("-")
@@ -75,6 +78,20 @@ posNeg.addEventListener("mousedown", function () {
             number.shift();
             firstNumber = number.join('');
             display.textContent = firstNumber;
+        }
+    } else {
+        if (secondNumber === null) {
+            return
+        }
+        let number = Array.from(secondNumber);
+        if (number[0] !== "-") {
+            number.unshift("-")
+            secondNumber = number.join('');
+            display.textContent = secondNumber;
+        } else {
+            number.shift();
+            secondNumber = number.join('');
+            display.textContent = secondNumber;
         }
     }
 })
