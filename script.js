@@ -62,7 +62,8 @@ function operate(operation, firstNumber, secondNumber) {
 function reset() {
     editFirstNumber = true;
     firstNumber = null;
-    secondNumber = null
+    secondNumber = null;
+    finished = false;
     display.textContent = "";
 }
 // --------- event listeners -----------------------------
@@ -513,6 +514,19 @@ decimal.addEventListener("mousedown", function () {
             display.textContent = firstNumber;
         }
     } else {
+        if (finished === true && editFirstNumber === false) {
+            firstNumber = firstNumber.toString();
+            if (firstNumber.includes(".")) {
+                return
+            } else {
+                let number = Array.from(firstNumber);
+                number.push(".");
+                firstNumber = number.join('');
+                editFirstNumber = true;
+                display.textContent = firstNumber;
+                return
+            }
+        }
         if (secondNumber.includes(".")) {
             return
         } else {
@@ -534,10 +548,7 @@ equal.addEventListener("mousedown", function () {
         return
     }
     result = operate(operator, firstNumber, secondNumber);
-    // console.log(lengthVar.length);
-    if (Math.trunc(result).toString().length > 10) {
-        console.log(result);
-        console.log(`length is ${result.toString().length}`);
+    if (Math.trunc(result).toString().length > 10) { // this whole section here could probably be refactored
         reset();
         display.style.fontSize = 50 + "px";
         display.textContent = "result is too big";
