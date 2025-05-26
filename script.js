@@ -7,13 +7,13 @@ const divideBtn = document.querySelector("#divide");
 
 const seven = document.querySelector("#seven");
 const eight = document.querySelector("#eight");
-const nine = document.querySelector("nine");
-const multiplyBtn = document.querySelector("multiply");
+const nine = document.querySelector("#nine");
+const multiplyBtn = document.querySelector("#multiply");
 
 const four = document.querySelector("#four");
 const five = document.querySelector("#five");
-const six = document.querySelector("six");
-const minusBtn = document.querySelector("minus");
+const six = document.querySelector("#six");
+const minusBtn = document.querySelector("#minus");
 
 const one = document.querySelector("#one");
 const two = document.querySelector("#two");
@@ -22,7 +22,7 @@ const plusBtn = document.querySelector("#plus");
 
 const zero = document.querySelector("#zero");
 const decimal = document.querySelector("#decimal");
-const equal = document.querySelector("equal");
+const equal = document.querySelector("#equal");
 
 function add(firstNumber, secondNumber) {
     return (parseInt(firstNumber) + parseInt(secondNumber));
