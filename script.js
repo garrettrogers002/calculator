@@ -447,6 +447,6 @@ equal.addEventListener("mousedown", function () {
     console.log(result);
     firstNumber = result;
     secondNumber = null;
-    editFirstNumber = true;
+    editFirstNumber = false;
     display.textContent = result;
 })
