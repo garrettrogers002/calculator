@@ -92,13 +92,21 @@ seven.addEventListener("mousedown", function () {
             display.textContent = firstNumber;
         } else {
             let number = Array.from(firstNumber);
-            console.log(firstNumber);
             number.push("7");
             firstNumber = number.join('');
             display.textContent = firstNumber;
         }
+    } else {
+        if (secondNumber === null) {
+            secondNumber = "7";
+            display.textContent = secondNumber;
+        } else {
+            let number = Array.from(secondNumber);
+            number.push("7");
+            secondNumber = number.join('');
+            display.textContent = secondNumber;
+        }
     }
-
 })
 eight.addEventListener("mousedown", function () {
     if (editFirstNumber) {
@@ -111,6 +119,16 @@ eight.addEventListener("mousedown", function () {
             number.push("8");
             firstNumber = number.join('');
             display.textContent = firstNumber;
+        }
+    } else {
+        if (secondNumber === null) {
+            secondNumber = "8";
+            display.textContent = secondNumber;
+        } else {
+            let number = Array.from(secondNumber);
+            number.push("8");
+            secondNumber = number.join('');
+            display.textContent = secondNumber;
         }
     }
 })
@@ -125,6 +143,16 @@ nine.addEventListener("mousedown", function () {
             number.push("9");
             firstNumber = number.join('');
             display.textContent = firstNumber;
+        }
+    } else {
+        if (secondNumber === null) {
+            secondNumber = "9";
+            display.textContent = secondNumber;
+        } else {
+            let number = Array.from(secondNumber);
+            number.push("9");
+            secondNumber = number.join('');
+            display.textContent = secondNumber;
         }
     }
 })
@@ -144,6 +172,16 @@ four.addEventListener("mousedown", function () {
             firstNumber = number.join('');
             display.textContent = firstNumber;
         }
+    } else {
+        if (secondNumber === null) {
+            secondNumber = "4";
+            display.textContent = secondNumber;
+        } else {
+            let number = Array.from(secondNumber);
+            number.push("4");
+            secondNumber = number.join('');
+            display.textContent = secondNumber;
+        }
     }
 })
 five.addEventListener("mousedown", function () {
@@ -158,6 +196,16 @@ five.addEventListener("mousedown", function () {
             firstNumber = number.join('');
             display.textContent = firstNumber;
         }
+    } else {
+        if (secondNumber === null) {
+            secondNumber = "5";
+            display.textContent = secondNumber;
+        } else {
+            let number = Array.from(secondNumber);
+            number.push("5");
+            secondNumber = number.join('');
+            display.textContent = secondNumber;
+        }
     }
 })
 six.addEventListener("mousedown", function () {
@@ -171,6 +219,16 @@ six.addEventListener("mousedown", function () {
             number.push("6");
             firstNumber = number.join('');
             display.textContent = firstNumber;
+        }
+    } else {
+        if (secondNumber === null) {
+            secondNumber = "6";
+            display.textContent = secondNumber;
+        } else {
+            let number = Array.from(secondNumber);
+            number.push("6");
+            secondNumber = number.join('');
+            display.textContent = secondNumber;
         }
     }
 })
@@ -190,6 +248,16 @@ one.addEventListener("mousedown", function () {
             firstNumber = number.join('');
             display.textContent = firstNumber;
         }
+    } else {
+        if (secondNumber === null) {
+            secondNumber = "1";
+            display.textContent = secondNumber;
+        } else {
+            let number = Array.from(secondNumber);
+            number.push("1");
+            secondNumber = number.join('');
+            display.textContent = secondNumber;
+        }
     }
 })
 two.addEventListener("mousedown", function () {
@@ -204,6 +272,16 @@ two.addEventListener("mousedown", function () {
             firstNumber = number.join('');
             display.textContent = firstNumber;
         }
+    } else {
+        if (secondNumber === null) {
+            secondNumber = "2";
+            display.textContent = secondNumber;
+        } else {
+            let number = Array.from(secondNumber);
+            number.push("2");
+            secondNumber = number.join('');
+            display.textContent = secondNumber;
+        }
     }
 })
 three.addEventListener("mousedown", function () {
@@ -217,6 +295,16 @@ three.addEventListener("mousedown", function () {
             number.push("3");
             firstNumber = number.join('');
             display.textContent = firstNumber;
+        }
+    } else {
+        if (secondNumber === null) {
+            secondNumber = "3";
+            display.textContent = secondNumber;
+        } else {
+            let number = Array.from(secondNumber);
+            number.push("3");
+            secondNumber = number.join('');
+            display.textContent = secondNumber;
         }
     }
 })
@@ -236,6 +324,16 @@ zero.addEventListener("mousedown", function () {
             firstNumber = number.join('');
             display.textContent = firstNumber;
         }
+    } else {
+        if (secondNumber === null) {
+            secondNumber = "0";
+            display.textContent = secondNumber;
+        } else {
+            let number = Array.from(secondNumber);
+            number.push("0");
+            secondNumber = number.join('');
+            display.textContent = secondNumber;
+        }
     }
 })
 decimal.addEventListener("mousedown", function () {
@@ -243,11 +341,10 @@ decimal.addEventListener("mousedown", function () {
         if (firstNumber.includes(".")) {
             return
         } else {
-            console.log("beep")
             let number = Array.from(firstNumber);
             number.push(".");
-            let beep = number.join('');
-            display.textContent = beep;
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
         }
     } else {
         if (secondNumber.includes(".")) {
@@ -255,8 +352,8 @@ decimal.addEventListener("mousedown", function () {
         } else {
             let number = Array.from(secondNumber);
             number.push(".");
-            number.join('');
-            display.textContent = number
+            secondNumber = number.join('');
+            display.textContent = secondNumber
         }
     }
 })
