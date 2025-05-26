@@ -114,14 +114,19 @@ posNeg.addEventListener("mousedown", function () {
     }
 })
 percent.addEventListener("mousedown", function () {
+    if (finished) {
+        editFirstNumber = true;
+    }
     if (editFirstNumber) {
         if (Number.isNaN(firstNumber) || firstNumber === null) {
             return
         }
-        firstNumber = parseFloat(firstNumber) * 0.01;
+        let placeFirstNumber = parseFloat(firstNumber) * 0.01;
+        firstNumber = +placeFirstNumber.toFixed(4);
+
         display.textContent = firstNumber.toString(); 
     } else {
-        if (Number.isNaN(secondNumber)) {
+        if (Number.isNaN(secondNumber) || secondNumber === null) {
             return
         }
         secondNumber = parseFloat(secondNumber) * 0.01;
@@ -132,6 +137,7 @@ divideBtn.addEventListener("mousedown", function () {
     if (secondNumber === null) {
         editFirstNumber = false;
         operator = "divide";
+        finished = false;
     } else {
         let result = operate(operator, firstNumber, secondNumber);
         operator = "divide";
@@ -237,6 +243,7 @@ multiplyBtn.addEventListener("mousedown", function () {
     if (secondNumber === null) {
         editFirstNumber = false;
         operator = "multiply";
+        finished = false;
     } else {
         if (operator === "divide" && secondNumber == 0) {
             reset();
@@ -347,6 +354,7 @@ minusBtn.addEventListener("mousedown", function () {
     if (secondNumber === null) {
         editFirstNumber = false;
         operator = "subtract";
+        finished = false;
     } else {
         if (operator === "divide" && secondNumber == 0) {
             reset();
@@ -457,6 +465,7 @@ plusBtn.addEventListener("mousedown", function () {
     if (secondNumber === null) {
         editFirstNumber = false;
         operator = "add";
+        finished = false;
     } else {
         if (operator === "divide" && secondNumber == 0) {
             reset();
