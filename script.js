@@ -91,6 +91,9 @@ seven.addEventListener("mousedown", function () {
             firstNumber = "7";
             display.textContent = firstNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(firstNumber);
             number.push("7");
             firstNumber = number.join('');
@@ -101,6 +104,9 @@ seven.addEventListener("mousedown", function () {
             secondNumber = "7";
             display.textContent = secondNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(secondNumber);
             number.push("7");
             secondNumber = number.join('');
@@ -114,8 +120,10 @@ eight.addEventListener("mousedown", function () {
             firstNumber = "8";
             display.textContent = firstNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(firstNumber);
-            console.log(firstNumber);
             number.push("8");
             firstNumber = number.join('');
             display.textContent = firstNumber;
@@ -125,6 +133,9 @@ eight.addEventListener("mousedown", function () {
             secondNumber = "8";
             display.textContent = secondNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(secondNumber);
             number.push("8");
             secondNumber = number.join('');
@@ -138,8 +149,10 @@ nine.addEventListener("mousedown", function () {
             firstNumber = "9";
             display.textContent = firstNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(firstNumber);
-            console.log(firstNumber);
             number.push("9");
             firstNumber = number.join('');
             display.textContent = firstNumber;
@@ -149,6 +162,9 @@ nine.addEventListener("mousedown", function () {
             secondNumber = "9";
             display.textContent = secondNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(secondNumber);
             number.push("9");
             secondNumber = number.join('');
@@ -166,8 +182,10 @@ four.addEventListener("mousedown", function () {
             firstNumber = "4";
             display.textContent = firstNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(firstNumber);
-            console.log(firstNumber);
             number.push("4");
             firstNumber = number.join('');
             display.textContent = firstNumber;
@@ -177,6 +195,9 @@ four.addEventListener("mousedown", function () {
             secondNumber = "4";
             display.textContent = secondNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(secondNumber);
             number.push("4");
             secondNumber = number.join('');
@@ -190,8 +211,10 @@ five.addEventListener("mousedown", function () {
             firstNumber = "5";
             display.textContent = firstNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(firstNumber);
-            console.log(firstNumber);
             number.push("5");
             firstNumber = number.join('');
             display.textContent = firstNumber;
@@ -201,6 +224,9 @@ five.addEventListener("mousedown", function () {
             secondNumber = "5";
             display.textContent = secondNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(secondNumber);
             number.push("5");
             secondNumber = number.join('');
@@ -214,8 +240,10 @@ six.addEventListener("mousedown", function () {
             firstNumber = "6";
             display.textContent = firstNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(firstNumber);
-            console.log(firstNumber);
             number.push("6");
             firstNumber = number.join('');
             display.textContent = firstNumber;
@@ -225,6 +253,9 @@ six.addEventListener("mousedown", function () {
             secondNumber = "6";
             display.textContent = secondNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(secondNumber);
             number.push("6");
             secondNumber = number.join('');
@@ -242,8 +273,10 @@ one.addEventListener("mousedown", function () {
             firstNumber = "1";
             display.textContent = firstNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(firstNumber);
-            console.log(firstNumber);
             number.push("1");
             firstNumber = number.join('');
             display.textContent = firstNumber;
@@ -253,6 +286,9 @@ one.addEventListener("mousedown", function () {
             secondNumber = "1";
             display.textContent = secondNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(secondNumber);
             number.push("1");
             secondNumber = number.join('');
@@ -266,8 +302,10 @@ two.addEventListener("mousedown", function () {
             firstNumber = "2";
             display.textContent = firstNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(firstNumber);
-            console.log(firstNumber);
             number.push("2");
             firstNumber = number.join('');
             display.textContent = firstNumber;
@@ -277,6 +315,9 @@ two.addEventListener("mousedown", function () {
             secondNumber = "2";
             display.textContent = secondNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(secondNumber);
             number.push("2");
             secondNumber = number.join('');
@@ -290,8 +331,10 @@ three.addEventListener("mousedown", function () {
             firstNumber = "3";
             display.textContent = firstNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(firstNumber);
-            console.log(firstNumber);
             number.push("3");
             firstNumber = number.join('');
             display.textContent = firstNumber;
@@ -301,6 +344,9 @@ three.addEventListener("mousedown", function () {
             secondNumber = "3";
             display.textContent = secondNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(secondNumber);
             number.push("3");
             secondNumber = number.join('');
@@ -318,8 +364,10 @@ zero.addEventListener("mousedown", function () {
             firstNumber = "0";
             display.textContent = firstNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(firstNumber);
-            console.log(firstNumber);
             number.push("0");
             firstNumber = number.join('');
             display.textContent = firstNumber;
@@ -329,6 +377,9 @@ zero.addEventListener("mousedown", function () {
             secondNumber = "0";
             display.textContent = secondNumber;
         } else {
+            if (firstNumber.length === 10) {
+                return
+            }
             let number = Array.from(secondNumber);
             number.push("0");
             secondNumber = number.join('');
