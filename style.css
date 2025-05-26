@@ -40,7 +40,7 @@ body {
     padding-right: 10px;
 }
 #buttonGrid {
-    background-color: black;
+    background-color: #222222;
     width: 450px;
     height: 650px;
     display: flex;
