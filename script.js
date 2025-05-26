@@ -1,5 +1,5 @@
 let firstNumber = null, secondNumber = null;
-
+let operator = null;
 let editFirstNumber = true;
 
 const display = document.querySelector("#display");
@@ -44,16 +44,16 @@ function divide(firstNumber, secondNumber) {
 function operate(operation, firstNumber, secondNumber) {
         switch(operation) {
             case "add":
-                add(firstNumber, secondNumber);
+                return add(firstNumber, secondNumber);
                 break
             case "subtract":
-                subtract(firstNumber, secondNumber);
+                return subtract(firstNumber, secondNumber);
                 break
             case "multiply":
-                multiply(firstNumber, secondNumber);
+                return multiply(firstNumber, secondNumber);
                 break
             case "divide":
-                divide(firstNumber, secondNumber);
+                return divide(firstNumber, secondNumber);
                 break
         }
 }
@@ -99,7 +99,10 @@ percent.addEventListener("mousedown", function () {
 
 })
 divideBtn.addEventListener("mousedown", function () {
-
+    if (secondNumber === null) {
+        editFirstNumber = false;
+        operator = "divide";
+    }
 })
 // --------------------------------------------------
 seven.addEventListener("mousedown", function () {
@@ -190,7 +193,10 @@ nine.addEventListener("mousedown", function () {
     }
 })
 multiplyBtn.addEventListener("mousedown", function () {
-
+    if (secondNumber === null) {
+        editFirstNumber = false;
+        operator = "multiply";
+    }
 })
 // ------------------------------------------------------
 four.addEventListener("mousedown", function () {
@@ -281,7 +287,10 @@ six.addEventListener("mousedown", function () {
     }
 })
 minusBtn.addEventListener("mousedown", function () {
-
+    if (secondNumber === null) {
+        editFirstNumber = false;
+        operator = "subtract";
+    }
 })
 //-------------------------------------------------------
 one.addEventListener("mousedown", function () {
@@ -372,14 +381,16 @@ three.addEventListener("mousedown", function () {
     }
 })
 plusBtn.addEventListener("mousedown", function () {
-
+    if (secondNumber === null) {
+        editFirstNumber = false;
+        operator = "add";
+    }
 })
 //------------------------------------------------------
 zero.addEventListener("mousedown", function () {
     if (editFirstNumber) {
         if (firstNumber === null) {
-            firstNumber = "0";
-            display.textContent = firstNumber;
+            return
         } else {
             if (firstNumber.length === 10) {
                 return
@@ -391,8 +402,7 @@ zero.addEventListener("mousedown", function () {
         }
     } else {
         if (secondNumber === null) {
-            secondNumber = "0";
-            display.textContent = secondNumber;
+            return
         } else {
             if (firstNumber.length === 10) {
                 return
@@ -426,5 +436,17 @@ decimal.addEventListener("mousedown", function () {
     }
 })
 equal.addEventListener("mousedown", function () {
-
+    if (firstNumber === null || secondNumber === null) {
+        return
+    }
+    console.log(operator);
+    console.log(firstNumber);
+    console.log(secondNumber);  
+    let result = operate(operator, firstNumber, secondNumber);
+    result = +result.toFixed(5); // found this solution on stackoverflow
+    console.log(result);
+    firstNumber = result;
+    secondNumber = null;
+    editFirstNumber = true;
+    display.textContent = result;
 })
