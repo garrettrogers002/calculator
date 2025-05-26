@@ -71,3 +71,7 @@ body {
 #zero {
     width: 200px;
 }
+#weird {
+    color: white;
+    font-size: 20px;
+}
