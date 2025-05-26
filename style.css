@@ -15,6 +15,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #555555;
 }
 #calculator {
     height: 800px;

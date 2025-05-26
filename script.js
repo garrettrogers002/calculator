@@ -57,7 +57,7 @@ function operate(operation, firstNumber, secondNumber) {
                 break
         }
 }
-
+// --------- event listeners -----------------------------
 clear.addEventListener("mousedown", function () {
     editFirstNumber = true;
     firstNumber = null;
@@ -69,9 +69,12 @@ posNeg.addEventListener("mousedown", function () {
         let number = Array.from(firstNumber);
         if (number[0] !== "-") {
             number.unshift("-")
-            return number.join('');
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
         } else {
-            return number.shift();
+            number.shift();
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
         }
     }
 })
@@ -84,21 +87,45 @@ divideBtn.addEventListener("mousedown", function () {
 // --------------------------------------------------
 seven.addEventListener("mousedown", function () {
     if (editFirstNumber) {
-        firstNumber = "7";
-        display.textContent = firstNumber;
+        if (firstNumber === null) {
+            firstNumber = "7";
+            display.textContent = firstNumber;
+        } else {
+            let number = Array.from(firstNumber);
+            console.log(firstNumber);
+            number.push("7");
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
+        }
     }
 
 })
 eight.addEventListener("mousedown", function () {
     if (editFirstNumber) {
-        firstNumber = "8";
-        display.textContent = firstNumber;
+        if (firstNumber === null) {
+            firstNumber = "8";
+            display.textContent = firstNumber;
+        } else {
+            let number = Array.from(firstNumber);
+            console.log(firstNumber);
+            number.push("8");
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
+        }
     }
 })
 nine.addEventListener("mousedown", function () {
     if (editFirstNumber) {
-        firstNumber = "9";
-        display.textContent = firstNumber;
+        if (firstNumber === null) {
+            firstNumber = "9";
+            display.textContent = firstNumber;
+        } else {
+            let number = Array.from(firstNumber);
+            console.log(firstNumber);
+            number.push("9");
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
+        }
     }
 })
 multiplyBtn.addEventListener("mousedown", function () {
@@ -107,20 +134,44 @@ multiplyBtn.addEventListener("mousedown", function () {
 // ------------------------------------------------------
 four.addEventListener("mousedown", function () {
     if (editFirstNumber) {
-        firstNumber = "4";
-        display.textContent = firstNumber;
+        if (firstNumber === null) {
+            firstNumber = "4";
+            display.textContent = firstNumber;
+        } else {
+            let number = Array.from(firstNumber);
+            console.log(firstNumber);
+            number.push("4");
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
+        }
     }
 })
 five.addEventListener("mousedown", function () {
     if (editFirstNumber) {
-        firstNumber = "5";
-        display.textContent = firstNumber;
+        if (firstNumber === null) {
+            firstNumber = "5";
+            display.textContent = firstNumber;
+        } else {
+            let number = Array.from(firstNumber);
+            console.log(firstNumber);
+            number.push("5");
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
+        }
     }
 })
 six.addEventListener("mousedown", function () {
     if (editFirstNumber) {
-        firstNumber = "6";
-        display.textContent = firstNumber;
+        if (firstNumber === null) {
+            firstNumber = "6";
+            display.textContent = firstNumber;
+        } else {
+            let number = Array.from(firstNumber);
+            console.log(firstNumber);
+            number.push("6");
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
+        }
     }
 })
 minusBtn.addEventListener("mousedown", function () {
@@ -129,20 +180,44 @@ minusBtn.addEventListener("mousedown", function () {
 //-------------------------------------------------------
 one.addEventListener("mousedown", function () {
     if (editFirstNumber) {
-        firstNumber = "1";
-        display.textContent = firstNumber;
+        if (firstNumber === null) {
+            firstNumber = "1";
+            display.textContent = firstNumber;
+        } else {
+            let number = Array.from(firstNumber);
+            console.log(firstNumber);
+            number.push("1");
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
+        }
     }
 })
 two.addEventListener("mousedown", function () {
     if (editFirstNumber) {
-        firstNumber = "2";
-        display.textContent = firstNumber;
+        if (firstNumber === null) {
+            firstNumber = "2";
+            display.textContent = firstNumber;
+        } else {
+            let number = Array.from(firstNumber);
+            console.log(firstNumber);
+            number.push("2");
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
+        }
     }
 })
 three.addEventListener("mousedown", function () {
     if (editFirstNumber) {
-        firstNumber = "3";
-        display.textContent = firstNumber;
+        if (firstNumber === null) {
+            firstNumber = "3";
+            display.textContent = firstNumber;
+        } else {
+            let number = Array.from(firstNumber);
+            console.log(firstNumber);
+            number.push("3");
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
+        }
     }
 })
 plusBtn.addEventListener("mousedown", function () {
@@ -151,8 +226,16 @@ plusBtn.addEventListener("mousedown", function () {
 //------------------------------------------------------
 zero.addEventListener("mousedown", function () {
     if (editFirstNumber) {
-        firstNumber = "0";
-        display.textContent = firstNumber;
+        if (firstNumber === null) {
+            firstNumber = "0";
+            display.textContent = firstNumber;
+        } else {
+            let number = Array.from(firstNumber);
+            console.log(firstNumber);
+            number.push("0");
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
+        }
     }
 })
 decimal.addEventListener("mousedown", function () {
