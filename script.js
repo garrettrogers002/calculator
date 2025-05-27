@@ -514,7 +514,10 @@ zero.addEventListener("mousedown", function () {
 })
 decimal.addEventListener("mousedown", function () {
     if (editFirstNumber) {
-        if (firstNumber.includes(".")) {
+        if (firstNumber === null) {
+            firstNumber = "0."
+            display.textContent = firstNumber;
+        }else if (firstNumber.includes(".")) {
             return
         } else {
             let number = Array.from(firstNumber);
@@ -536,7 +539,11 @@ decimal.addEventListener("mousedown", function () {
                 return
             }
         }
-        if (secondNumber.includes(".")) {
+        if (secondNumber === null) {
+            secondNumber = "0.";
+            display.textContent = secondNumber;
+            return
+        }else if (secondNumber.includes(".")) {
             return
         } else {
             let number = Array.from(secondNumber);
