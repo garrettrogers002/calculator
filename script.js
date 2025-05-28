@@ -564,23 +564,19 @@ equal.addEventListener("mousedown", function () {
         return
     }
     result = operate(operator, firstNumber, secondNumber);
-    if (Math.trunc(result).toString().length > 10) { // this whole section here could probably be refactored
+    let len = Math.trunc(result).toString().length;
+    if (len > 10) {
         reset();
         display.style.fontSize = 50 + "px";
         display.textContent = "result is too big";
         return
     } else if (Math.trunc(result).toString().length === 10) {
         result = Math.round(result);
-    } else if (Math.trunc(result).toString().length === 9) {
-        result = +result.toFixed(1);
-    } else if (Math.trunc(result).toString().length === 8) {
-        result = +result.toFixed(2);
-    } else if (Math.trunc(result).toString().length === 7) {
-        result = +result.toFixed(3);
-    } else if (Math.trunc(result).toString().length === 6) {
-        result = +result.toFixed(4);
-    } else if (Math.trunc(result).toString().length <= 5) {
+    } else if (len <= 5) {
         result = +result.toFixed(5);
+    } else {
+        let difference = 10 - len;
+        result = +result.toFixed(difference);
     }
     firstNumber = result;
     secondNumber = null;
