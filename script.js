@@ -102,45 +102,18 @@ clear.addEventListener("mousedown", function () {
     display.style.fontSize = 80 + "px";
 })
 posNeg.addEventListener("mousedown", function () {
-    if (editFirstNumber && finished === false) {
+    if ((editFirstNumber && finished === false) || finished === true) {
         if (firstNumber === null || Number.isNaN(firstNumber)) {
             return;
         }
-        let number = Array.from(firstNumber);
-        if (number[0] !== "-") {
-            number.unshift("-");
-            firstNumber = number.join('');
-            display.textContent = firstNumber;
-        } else {
-            number.shift();
-            firstNumber = number.join('');
-            display.textContent = firstNumber;
-        }
-    } else if (finished === true) {
-        let number = [...firstNumber.toString()];
-        if (number[0] !== "-") {
-            number.unshift("-");
-            firstNumber = number.join('');
-            display.textContent = firstNumber;
-        } else {
-            number.shift();
-            firstNumber = number.join('');
-            display.textContent = firstNumber;
-        }
+        firstNumber = (parseFloat(firstNumber) * -1).toString();
+        display.textContent = firstNumber;
     } else {
         if (secondNumber === null || Number.isNaN(secondNumber)) {
             return;
         }
-        let number = Array.from(secondNumber);
-        if (number[0] !== "-") {
-            number.unshift("-")
-            secondNumber = number.join('');
-            display.textContent = secondNumber;
-        } else {
-            number.shift();
-            secondNumber = number.join('');
-            display.textContent = secondNumber;
-        }
+        secondNumber = (parseFloat(secondNumber) * -1).toString();
+        display.textContent = secondNumber;
     }
 })
 percent.addEventListener("mousedown", function () {
