@@ -74,7 +74,7 @@ function numberBtnPress(btnNumber) {
             display.textContent = firstNumber;
         } else {
             if (firstNumber.length === 10) {
-                return
+                return;
             }
             let number = Array.from(firstNumber);
             number.push(btnNumber.toString());
@@ -87,7 +87,7 @@ function numberBtnPress(btnNumber) {
             display.textContent = secondNumber;
         } else {
             if (firstNumber.length === 10) {
-                return
+                return;
             }
             let number = Array.from(secondNumber);
             number.push(btnNumber.toString());
@@ -104,7 +104,7 @@ clear.addEventListener("mousedown", function () {
 posNeg.addEventListener("mousedown", function () {
     if (editFirstNumber && finished === false) {
         if (firstNumber === null || Number.isNaN(firstNumber)) {
-            return
+            return;
         }
         let number = Array.from(firstNumber);
         if (number[0] !== "-") {
@@ -129,7 +129,7 @@ posNeg.addEventListener("mousedown", function () {
         }
     } else {
         if (secondNumber === null || Number.isNaN(secondNumber)) {
-            return
+            return;
         }
         let number = Array.from(secondNumber);
         if (number[0] !== "-") {
@@ -149,7 +149,7 @@ percent.addEventListener("mousedown", function () {
     }
     if (editFirstNumber) {
         if (Number.isNaN(firstNumber) || firstNumber === null) {
-            return
+            return;
         }
         let placeFirstNumber = parseFloat(firstNumber) * 0.01;
         firstNumber = +placeFirstNumber.toFixed(4);
@@ -157,7 +157,7 @@ percent.addEventListener("mousedown", function () {
         display.textContent = firstNumber.toString(); 
     } else {
         if (Number.isNaN(secondNumber) || secondNumber === null) {
-            return
+            return;
         }
         secondNumber = parseFloat(secondNumber) * 0.01;
         display.textContent = secondNumber.toString();
@@ -227,7 +227,7 @@ minusBtn.addEventListener("mousedown", function () {
         if (operator === "divide" && secondNumber == 0) {
             reset();
             display.textContent = "nice try";
-            return
+            return;
         }
         let result = operate(operator, firstNumber, secondNumber);
         operator = "subtract";
@@ -257,7 +257,7 @@ plusBtn.addEventListener("mousedown", function () {
         if (operator === "divide" && secondNumber == 0) {
             reset();
             display.textContent = "nice try";
-            return
+            return;
         }
         let result = operate(operator, firstNumber, secondNumber);
         operator = "add";
@@ -277,7 +277,7 @@ zero.addEventListener("mousedown", function () {
             display.textContent = firstNumber;
         } else {
             if (firstNumber.length === 10) {
-                return
+                return;
             }
             let number = Array.from(firstNumber);
             number.push("0");
@@ -290,7 +290,7 @@ zero.addEventListener("mousedown", function () {
             display.textContent = secondNumber;
         } else {
             if (firstNumber.length === 10) {
-                return
+                return;
             }
             let number = Array.from(secondNumber);
             number.push("0");
@@ -305,7 +305,7 @@ decimal.addEventListener("mousedown", function () {
             firstNumber = "0.";
             display.textContent = firstNumber;
         } else if (firstNumber.includes(".")) {
-            return
+            return;
         } else {
             let number = Array.from(firstNumber);
             number.push(".");
@@ -316,22 +316,22 @@ decimal.addEventListener("mousedown", function () {
         if (finished === true && editFirstNumber === false) {
             firstNumber = firstNumber.toString();
             if (firstNumber.includes(".")) {
-                return
+                return;
             } else {
                 let number = Array.from(firstNumber);
                 number.push(".");
                 firstNumber = number.join('');
                 editFirstNumber = true;
                 display.textContent = firstNumber;
-                return
+                return;
             }
         }
         if (secondNumber === null) {
             secondNumber = "0.";
             display.textContent = secondNumber;
-            return
+            return;
         } else if (secondNumber.includes(".")) {
-            return
+            return;
         } else {
             let number = Array.from(secondNumber);
             number.push(".");
@@ -343,12 +343,12 @@ decimal.addEventListener("mousedown", function () {
 equal.addEventListener("mousedown", function () {
     let result;
     if (firstNumber === null || secondNumber === null) {
-        return
+        return;
     }
     if (operator === "divide" && secondNumber == 0) {
         reset();
         display.textContent = "nice try";
-        return
+        return;
     }
     result = operate(operator, firstNumber, secondNumber);
     let len = Math.trunc(result).toString().length;
@@ -356,7 +356,7 @@ equal.addEventListener("mousedown", function () {
         reset();
         display.style.fontSize = 50 + "px";
         display.textContent = "result is too big";
-        return
+        return;
     } else if (Math.trunc(result).toString().length === 10) {
         result = Math.round(result);
     } else if (len <= 5) {
