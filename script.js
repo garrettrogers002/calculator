@@ -66,6 +66,36 @@ function reset() {
     finished = false;
     display.textContent = "";
 }
+function numberBtnPress(btnNumber) {
+    display.style.fontSize = 80 + "px";
+    if (editFirstNumber) {
+        if (firstNumber === null) {
+            firstNumber = btnNumber.toString();
+            display.textContent = firstNumber;
+        } else {
+            if (firstNumber.length === 10) {
+                return
+            }
+            let number = Array.from(firstNumber);
+            number.push(btnNumber.toString());
+            firstNumber = number.join('');
+            display.textContent = firstNumber;
+        }
+    } else {
+        if (secondNumber === null) {
+            secondNumber = btnNumber.toString();
+            display.textContent = secondNumber;
+        } else {
+            if (firstNumber.length === 10) {
+                return
+            }
+            let number = Array.from(secondNumber);
+            number.push(btnNumber.toString());
+            secondNumber = number.join('');
+            display.textContent = secondNumber;
+        }
+    }
+}
 // --------- event listeners -----------------------------
 clear.addEventListener("mousedown", function () {
     reset();
@@ -150,94 +180,13 @@ divideBtn.addEventListener("mousedown", function () {
 })
 // --------------------------------------------------
 seven.addEventListener("mousedown", function () {
-    display.style.fontSize = 80 + "px";
-    if (editFirstNumber) {
-        if (firstNumber === null) {
-            firstNumber = "7";
-            display.textContent = firstNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(firstNumber);
-            number.push("7");
-            firstNumber = number.join('');
-            display.textContent = firstNumber;
-        }
-    } else {
-        if (secondNumber === null) {
-            secondNumber = "7";
-            display.textContent = secondNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(secondNumber);
-            number.push("7");
-            secondNumber = number.join('');
-            display.textContent = secondNumber;
-        }
-    }
+    numberBtnPress(7);
 })
 eight.addEventListener("mousedown", function () {
-    display.style.fontSize = 80 + "px";
-    if (editFirstNumber) {
-        if (firstNumber === null) {
-            firstNumber = "8";
-            display.textContent = firstNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(firstNumber);
-            number.push("8");
-            firstNumber = number.join('');
-            display.textContent = firstNumber;
-        }
-    } else {
-        if (secondNumber === null) {
-            secondNumber = "8";
-            display.textContent = secondNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(secondNumber);
-            number.push("8");
-            secondNumber = number.join('');
-            display.textContent = secondNumber;
-        }
-    }
+    numberBtnPress(8);
 })
 nine.addEventListener("mousedown", function () {
-    display.style.fontSize = 80 + "px";
-    if (editFirstNumber) {
-        if (firstNumber === null) {
-            firstNumber = "9";
-            display.textContent = firstNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(firstNumber);
-            number.push("9");
-            firstNumber = number.join('');
-            display.textContent = firstNumber;
-        }
-    } else {
-        if (secondNumber === null) {
-            secondNumber = "9";
-            display.textContent = secondNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(secondNumber);
-            number.push("9");
-            secondNumber = number.join('');
-            display.textContent = secondNumber;
-        }
-    }
+    numberBtnPress(9);
 })
 multiplyBtn.addEventListener("mousedown", function () {
     if (secondNumber === null) {
@@ -248,7 +197,7 @@ multiplyBtn.addEventListener("mousedown", function () {
         if (operator === "divide" && secondNumber == 0) {
             reset();
             display.textContent = "nice try";
-            return
+            return;
         }
         let result = operate(operator, firstNumber, secondNumber);
         operator = "multiply";
@@ -261,94 +210,13 @@ multiplyBtn.addEventListener("mousedown", function () {
 })
 // ------------------------------------------------------
 four.addEventListener("mousedown", function () {
-    display.style.fontSize = 80 + "px";
-    if (editFirstNumber) {
-        if (firstNumber === null) {
-            firstNumber = "4";
-            display.textContent = firstNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(firstNumber);
-            number.push("4");
-            firstNumber = number.join('');
-            display.textContent = firstNumber;
-        }
-    } else {
-        if (secondNumber === null) {
-            secondNumber = "4";
-            display.textContent = secondNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(secondNumber);
-            number.push("4");
-            secondNumber = number.join('');
-            display.textContent = secondNumber;
-        }
-    }
+    numberBtnPress(4);
 })
 five.addEventListener("mousedown", function () {
-    display.style.fontSize = 80 + "px";
-    if (editFirstNumber) {
-        if (firstNumber === null) {
-            firstNumber = "5";
-            display.textContent = firstNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(firstNumber);
-            number.push("5");
-            firstNumber = number.join('');
-            display.textContent = firstNumber;
-        }
-    } else {
-        if (secondNumber === null) {
-            secondNumber = "5";
-            display.textContent = secondNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(secondNumber);
-            number.push("5");
-            secondNumber = number.join('');
-            display.textContent = secondNumber;
-        }
-    }
+    numberBtnPress(5);
 })
 six.addEventListener("mousedown", function () {
-    display.style.fontSize = 80 + "px";
-    if (editFirstNumber) {
-        if (firstNumber === null) {
-            firstNumber = "6";
-            display.textContent = firstNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(firstNumber);
-            number.push("6");
-            firstNumber = number.join('');
-            display.textContent = firstNumber;
-        }
-    } else {
-        if (secondNumber === null) {
-            secondNumber = "6";
-            display.textContent = secondNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(secondNumber);
-            number.push("6");
-            secondNumber = number.join('');
-            display.textContent = secondNumber;
-        }
-    }
+    numberBtnPress(6);
 })
 minusBtn.addEventListener("mousedown", function () {
     if (secondNumber === null) {
@@ -372,94 +240,13 @@ minusBtn.addEventListener("mousedown", function () {
 })
 //-------------------------------------------------------
 one.addEventListener("mousedown", function () {
-    display.style.fontSize = 80 + "px";
-    if (editFirstNumber) {
-        if (firstNumber === null) {
-            firstNumber = "1";
-            display.textContent = firstNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(firstNumber);
-            number.push("1");
-            firstNumber = number.join('');
-            display.textContent = firstNumber;
-        }
-    } else {
-        if (secondNumber === null) {
-            secondNumber = "1";
-            display.textContent = secondNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(secondNumber);
-            number.push("1");
-            secondNumber = number.join('');
-            display.textContent = secondNumber;
-        }
-    }
+    numberBtnPress(1);
 })
 two.addEventListener("mousedown", function () {
-    display.style.fontSize = 80 + "px";
-    if (editFirstNumber) {
-        if (firstNumber === null) {
-            firstNumber = "2";
-            display.textContent = firstNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(firstNumber);
-            number.push("2");
-            firstNumber = number.join('');
-            display.textContent = firstNumber;
-        }
-    } else {
-        if (secondNumber === null) {
-            secondNumber = "2";
-            display.textContent = secondNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(secondNumber);
-            number.push("2");
-            secondNumber = number.join('');
-            display.textContent = secondNumber;
-        }
-    }
+    numberBtnPress(2);
 })
 three.addEventListener("mousedown", function () {
-    display.style.fontSize = 80 + "px";
-    if (editFirstNumber) {
-        if (firstNumber === null) {
-            firstNumber = "3";
-            display.textContent = firstNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(firstNumber);
-            number.push("3");
-            firstNumber = number.join('');
-            display.textContent = firstNumber;
-        }
-    } else {
-        if (secondNumber === null) {
-            secondNumber = "3";
-            display.textContent = secondNumber;
-        } else {
-            if (firstNumber.length === 10) {
-                return
-            }
-            let number = Array.from(secondNumber);
-            number.push("3");
-            secondNumber = number.join('');
-            display.textContent = secondNumber;
-        }
-    }
+    numberBtnPress(3);
 })
 plusBtn.addEventListener("mousedown", function () {
     if (secondNumber === null) {
