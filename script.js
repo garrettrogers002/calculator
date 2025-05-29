@@ -136,11 +136,14 @@ percent.addEventListener("mousedown", function () {
         display.textContent = secondNumber.toString();
     }
 })
-divideBtn.addEventListener("mousedown", function () {
+divideBtn.addEventListener("mousedown", function () { 
     if (secondNumber === null) {
         editFirstNumber = false;
         operator = "divide";
         finished = false;
+    } else if (firstNumber === null) {
+        reset()
+        return;
     } else {
         let result = operate(operator, firstNumber, secondNumber);
         operator = "divide";
@@ -166,6 +169,9 @@ multiplyBtn.addEventListener("mousedown", function () {
         editFirstNumber = false;
         operator = "multiply";
         finished = false;
+    } else if (firstNumber === null) {
+        reset();
+        return;
     } else {
         if (operator === "divide" && secondNumber == 0) {
             reset();
@@ -196,6 +202,8 @@ minusBtn.addEventListener("mousedown", function () {
         editFirstNumber = false;
         operator = "subtract";
         finished = false;
+    } else if (firstNumber === null) {
+        reset();
     } else {
         if (operator === "divide" && secondNumber == 0) {
             reset();
@@ -226,6 +234,9 @@ plusBtn.addEventListener("mousedown", function () {
         editFirstNumber = false;
         operator = "add";
         finished = false;
+    } else if (firstNumber === null) {
+        reset();
+        return;
     } else {
         if (operator === "divide" && secondNumber == 0) {
             reset();
